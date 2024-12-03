@@ -11,7 +11,9 @@ export default defineConfig({
             refresh: true,
         }),
         vue(),
-        vueDevTools(),
+        vueDevTools({
+            launchEditor: 'phpstorm'
+        }),
     ],
     resolve: {
         alias: {

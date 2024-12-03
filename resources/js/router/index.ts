@@ -7,7 +7,7 @@ const router = createRouter({
     routes
 })
 router.beforeEach(async (to, from, next) => {
-    document.title = 'NC | '+ to.name.toUpperCase();
+    document.title = 'NT | '+ to.name.toUpperCase();
     const authStore = useAuthStore();
     await authStore.checkUser();
     if (to.meta.requiresAuth && !authStore.isAuthenticated) {

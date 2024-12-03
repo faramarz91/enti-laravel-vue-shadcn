@@ -7,6 +7,7 @@ use Inertia\Inertia;
     return Inertia::render('Welcome', ["test" => "test"]);
 });*/
 
+
 Route::get('{any?}', function () {
     return view('welcome');
 })->where('any', '.*');

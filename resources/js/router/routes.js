@@ -3,6 +3,7 @@ import HeroLayout from "@/layouts/HeroLayout.vue";
 import AuthLoayout from "@/layouts/AuthLayout.vue";
 import DashboardLayout from "@/layouts/DashboardLayout.vue";
 import SettingLayout from "@/layouts/SettingLayout.vue";
+import NavHeader2 from "@/components/section/Nav/NavHeader2.vue";
 
 const routes = [
     {
