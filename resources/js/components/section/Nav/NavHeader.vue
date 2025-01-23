@@ -3,7 +3,7 @@
         <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">New Cortex</span>
+                    <span class="sr-only">Enti automation</span>
                     <img class="h-8 w-auto" src="/public/enti.jpg" alt="" />
                 </a>
             </div>
@@ -17,8 +17,12 @@
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <RouterLink v-if="authStore.isAuthenticated" :to="{name: 'Dashboard'}" class="text-sm font-semibold leading-6 text-gray-900">{{authStore.userName.toUpperCase()}}</RouterLink>
-                <RouterLink v-else :to="{name: 'Login'}" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></RouterLink>
+                <RouterLink v-if="authStore.isAuthenticated" to="#" class="text-sm font-semibold leading-6 text-gray-900">
+                    {{authStore.userName?.toUpperCase() ?? 'null'}}
+                </RouterLink>
+                <RouterLink v-else :to="{name: 'Login'}" class="text-sm font-semibold leading-6 text-gray-900">
+                    Log in <span aria-hidden="true">&rarr;</span>
+                </RouterLink>
             </div>
         </nav>
         <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -37,7 +41,8 @@
                 <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
-                            <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
+                            <a v-for="item in navigation" :key="item.name" :href="item.href"
+                               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
                         </div>
                         <div class="py-6">
                             <RouterLink :to="{name: 'Login'}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</RouterLink>

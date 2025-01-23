@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white">
-        <nav-header2/>
+        <nav-header/>
 
         <router-view></router-view>
     </div>

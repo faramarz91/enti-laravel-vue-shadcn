@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $adminRole = Role::create(['name' => 'admin']);
+        $userRole = Role::create(['name' => 'user']);
+        User::factory()->hasAttached([$adminRole , $userRole])->create([
+            'name' => 'faramarz',
+            'email' => 'fara@example.com',
+        ]);
+
+        User::factory()->hasAttached($adminRole)->create([
+            'name' => 'admin',
+            'email' => 'admin@example.com',
+        ]);
+        User::factory()->hasAttached($userRole)->create([
+            'name' => 'user',
+            'email' => 'user@example.com',
         ]);
     }
 }

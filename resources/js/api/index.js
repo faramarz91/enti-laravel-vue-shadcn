@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
         'X-Requested-With': 'XMLHttpRequest'
     },
 });
-axiosInstance.defaults.baseURL = 'http://localhost'
+axiosInstance.defaults.baseURL = 'http://panel.enti.test'
 axiosInstance.defaults.timeout = 10000;
 axiosInstance.defaults.withCredentials = true;
 axiosInstance.defaults.withXSRFToken = true;
