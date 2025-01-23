@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import router from "@/router/dashboard.ts";
-import {useValidationStore} from "@/stores/validation";
 
 
 export const useAuthStore = defineStore('authStore', {
@@ -87,7 +86,7 @@ export const useAuthStore = defineStore('authStore', {
             try {
                 const response = await $axios.get('/api/v1/user');
                 this.user = response.data.data;
-                localStorage.setItem('user', JSON.stringify(this.user.data));
+                localStorage.setItem('user', JSON.stringify(this.user));
                 return response;
             } catch (error) {
                 console.error('Failed to fetch user:', error);
